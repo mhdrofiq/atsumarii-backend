@@ -3,9 +3,10 @@ spring:
     application:
         name: atsumarii
     datasource:
+        # url: jdbc:mysql://awseb-e-fppneskydp-stack-awsebrdsdatabase-ksfe0ph03qdk.cd84o2iq8vn8.ap-northeast-1.rds.amazonaws.com:3306/ebdb
         url: jdbc:mysql://localhost:3307/atsumarii_db?createDatabaseIfNotExist=true
         username: root
-        password: test
+        password: rootpass
         driver-class-name: com.mysql.cj.jdbc.Driver
     jpa:
         hibernate:
