@@ -3,11 +3,10 @@ spring:
     application:
         name: atsumarii
     datasource:
-        # url: jdbc:mysql://awseb-e-fppneskydp-stack-awsebrdsdatabase-ksfe0ph03qdk.cd84o2iq8vn8.ap-northeast-1.rds.amazonaws.com:3306/ebdb
         url: jdbc:mysql://localhost:3307/atsumarii_db?createDatabaseIfNotExist=true
         username: root
         password: rootpass
-        driver-class-name: com.mysql.cj.jdbc.driver
+        driver-class-name: com.mysql.cj.jdbc.Driver
     jpa:
         hibernate:
             ddl-auto: update
@@ -18,8 +17,8 @@ spring:
         database: mysql
         database-platform: org.hibernate.dialect.MySQL8Dialect
         defer-datasource-initialization: true
-    # sql:
-    #     init:
-    #         mode: always
-    #         data-locations: classpath:populate.sql
-    #         continue-on-error: false
+    sql:
+        init:
+            mode: ${SPRING_SQL_INIT_MODE:always}  # Control via environment variable
+            data-locations: classpath:populate-safe.sql
+            continue-on-error: true
